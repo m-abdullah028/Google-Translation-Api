@@ -1,10 +1,13 @@
 package com.translation.service;
 
+import org.springframework.stereotype.Service;
+
 import com.google.api.client.util.Value;
 import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.TranslateOptions;
 import com.google.gson.JsonObject;
 
+@Service
 public class TranslateService {
 	@Value("${api.key}")
 	private String apiKey;
