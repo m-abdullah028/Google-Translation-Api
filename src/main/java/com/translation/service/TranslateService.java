@@ -34,6 +34,7 @@ public class TranslateService {
 
 				responseJO.addProperty("status", "success");
 				responseJO.add("data", data);
+				
 
 			} catch (Exception e) {
 				responseJO.addProperty("status", "error");
