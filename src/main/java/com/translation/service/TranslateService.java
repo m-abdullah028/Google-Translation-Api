@@ -9,8 +9,8 @@ import com.google.gson.JsonObject;
 
 @Service
 public class TranslateService {
-	@Value("${api.key}")
-	private String apiKey;
+
+	String apiKey = System.getenv("API_KEY");
 
 	public JsonObject translateString(JsonObject requestJson) {
 		JsonObject responseJO = new JsonObject();
@@ -25,7 +25,6 @@ public class TranslateService {
 
 				// Initialize the Translate service
 				Translate translate = TranslateOptions.newBuilder().setApiKey(apiKey).build().getService();
-
 				// Translate to language
 				com.google.cloud.translate.Translation translation = translate.translate(query,
 						Translate.TranslateOption.sourceLanguage(source),

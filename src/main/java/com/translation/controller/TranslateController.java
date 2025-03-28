@@ -2,6 +2,7 @@ package com.translation.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,18 +14,19 @@ import com.google.gson.JsonObject;
 import com.translation.service.TranslateService;
 
 @RestController
+@RequestMapping("/api")
 public class TranslateController {
 	@Autowired
 	private TranslateService translateService;
 	Gson gson = new Gson();
 
-	@RequestMapping(value = { "/translate" }, method = { RequestMethod.POST }, produces = { "application/json" })
+	@PostMapping("/translate")
 	public ResponseEntity<String> translateProcess(@RequestBody String requestJson) {
 		JsonObject request = (JsonObject) this.gson.fromJson(requestJson, JsonObject.class);
 
-		JsonObject responseJson = translateService.translateString(request); // Call service method
+		JsonObject responseJson = translateService.translateString(request);
 
-		return new ResponseEntity<>(responseJson.toString(), HttpStatus.OK);
+		return ResponseEntity.ok(responseJson.toString());
 	}
 
 }
