@@ -1,10 +1,10 @@
 # Google-Translation-Api
 
-Overview
+# Overview
 
 This project is a Spring Boot application that integrates with Google Cloud Translation API to dynamically translate text between different languages. The application receives a JSON request containing the text, source language, and target language, and returns the translated text as a JSON response.
 
-Technologies Used
+# Technologies Used
 
 ● Java (Spring Boot framework)
 
@@ -16,7 +16,7 @@ Technologies Used
 
 ● GitHub
 
-Google Cloud Console Configuration
+# Google Cloud Console Configuration
 
 Go to Google Cloud Console.
 Create a new Google Cloud Project.
